@@ -55,18 +55,5 @@ CREATE TABLE schedule (
     event_id INTEGER REFERENCES event(event_id) /*refers to the eventID of the particular class */
 );
 
-CREATE TABLE client (
-    user_id INTEGER REFERENCES  personal_information(user_id) PRIMARY KEY,
-    first_name VARCHAR2(30) REFERENCES  personal_information(first_name) ,
-    last_name VARCHAR2(30) REFERENCES  personal_information(last_name),
-    birthdate DATE REFERENCES  personal_information(birthdate),
-    age INTEGER REFERENCES  personal_information(age),
-    health_condition VARCHAR2(30) REFERENCES  personal_information(health_condition),
-    height INTEGER REFERENCES  personal_information(height),
-    weight INTEGER REFERENCES  personal_information(weight),
-    client_id INTEGER,
-    credit_card credit_card NOT NULL
-);
-
 exit;
 EOF
