@@ -27,17 +27,23 @@ CREATE VIEW membership_card AS
 SELECT first_name, last_name, user_id
 FROM personal_information;
 
+Select * from membership_card;
+
 --Displays only weekend events and classes that occur after noon
 CREATE VIEW evening_events AS
 SELECT name_of_event, event_date, event_time
 FROM event
 WHERE event_time > 0;
 
+Select * from evening_events;
+
 --Displays a list of attendees for an instructor for a class. 
 CREATE VIEW confirmed_attendees AS
 SELECT first_name,last_name
 FROM personal_information, schedule, event
 WHERE schedule.user_id = personal_information.user_id AND schedule.event_id = event.event_id;
+
+Select * from confirmed_attendees;
 
 exit;
 EOF
