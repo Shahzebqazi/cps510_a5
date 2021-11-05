@@ -26,13 +26,6 @@ CREATE TABLE event (
     /*is_eighteen_plus_only VARCHAR2(10)*/
 );
 
-CREATE TABLE instructor (
-    instructor_id INTEGER REFERENCES personal_information(user_id),
-    instructor_payment_id INTEGER REFERENCES direct_deposit(user_id), /*Foreign key, a pointer from the instructor payment id to the user id, in order to direct deposit pay the instructor*/
-    instructor_event_id INTEGER REFERENCES event(event_id) /*Foreign key, a pointer from the instructor event id to the event id, in order to see which class each instructor is teaching*/
-    /*instructor_info_id INTEGER REFERENCES personal_information(user_id) Foreign key, a pointer from the instructor info id to the user id, in order to access the instructors personal information*/ 
-);
-
 CREATE TABLE direct_deposit (
     user_id INTEGER PRIMARY KEY,
     transit_number INTEGER NOT NULL,
@@ -53,6 +46,13 @@ CREATE TABLE credit_card (
 CREATE TABLE schedule (
     user_id INTEGER REFERENCES personal_information(user_id), /*refers to the userID of the client taking a particular class */
     event_id INTEGER REFERENCES event(event_id) /*refers to the eventID of the particular class */
+);
+
+CREATE TABLE instructor (
+    instructor_id INTEGER REFERENCES personal_information(user_id),
+    instructor_payment_id INTEGER REFERENCES direct_deposit(user_id), /*Foreign key, a pointer from the instructor payment id to the user id, in order to direct deposit pay the instructor*/
+    instructor_event_id INTEGER REFERENCES event(event_id) /*Foreign key, a pointer from the instructor event id to the event id, in order to see which class each instructor is teaching*/
+    /*instructor_info_id INTEGER REFERENCES personal_information(user_id) Foreign key, a pointer from the instructor info id to the user id, in order to access the instructors personal information*/ 
 );
 
 exit;
