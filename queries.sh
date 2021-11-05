@@ -27,6 +27,7 @@ CREATE VIEW membership_card AS
 SELECT first_name, last_name, user_id
 FROM personal_information;
 
+
 --Displays only weekend events and classes that occur after noon
 CREATE VIEW evening_events AS
 SELECT name_of_event, event_date, event_time
