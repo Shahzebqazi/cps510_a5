@@ -16,19 +16,12 @@ echo
 "================================================================="
 echo "|                    Oracle All Inclusive Tool
 |"
-echo "|
-Main Menu
--
-Select Desired Operation(s):
+echo "|			Main Menu - Select Desired Operation(s):
 |"
-echo "|        <CTRL
--
-Z Anytime to Enter Interactive CMD Prompt>
+echo "|        <CTRL-Z Anytime to Enter Interactive CMD Prompt>
 |"
 echo "
--------------------------------------------------------------
-----
-"
+-----------------------------------------------------------------"
 
 	echo " $IS_SELECTEDM M)  View
 	Manual"
@@ -37,6 +30,7 @@ echo "
 	echo " $IS_SELECTED2 2)  Create Tables"
 	echo " $IS_SELECTED3 3)  Populate Tables"
 	echo " $IS_SELECTED4 4)  Query Tables"
+	echo " $IS_SELECTED4 5)  View Tables"
 	echo " "
 	echo " $IS_SELECTEDX X)  Force/Stop/Kill Oracle DB"
 	echo " "
@@ -67,6 +61,11 @@ echo "
 	elif [ "$CHOICE" == "4" ]
 	then
 		bash queries.sh
+		Pause
+
+	elif [ "$CHOICE" == "5" ]
+	then
+		bash view_table.sh
 		Pause
 
 	elif [ "$CHOICE" == "E" ]
