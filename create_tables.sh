@@ -3,6 +3,18 @@
 
 sqlplus64 "snizam/04054152@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle.scs.ryerson.ca)(Port=1521))(CONNECT_DATA=(SID=orcl)))" <<EOF
 
+--Create personal_information table
+CREATE TABLE personal_information (
+    user_id INTEGER PRIMARY KEY,
+    first_name VARCHAR2(30),
+    last_name VARCHAR2(30),
+    birthdate VARCHAR2(30),
+    age INTEGER,
+    health_condition VARCHAR2(30),
+    height INTEGER,
+    weight INTEGER
+);
+
 CREATE TABLE event (
     event_id INTEGER PRIMARY KEY,
     instructor VARCHAR2(100) NULL,
@@ -26,18 +38,6 @@ CREATE TABLE direct_deposit (
     transit_number INTEGER NOT NULL,
     institution_number INTEGER NOT NULL,
     card_number INTEGER NOT NULL
-);
-
---Create personal_information table
-CREATE TABLE personal_information (
-    user_id INTEGER PRIMARY KEY,
-    first_name VARCHAR2(30),
-    last_name VARCHAR2(30),
-    birthdate VARCHAR2(30),
-    age INTEGER,
-    health_condition VARCHAR2(30),
-    height INTEGER,
-    weight INTEGER
 );
 
 --Create credit_card table
