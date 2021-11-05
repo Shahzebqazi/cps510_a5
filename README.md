@@ -1,5 +1,9 @@
 # cps510_a5 readme
 #
+#
+# run using "bash ./menu.sh"
+#
+#
 # 1) command to access ryerson moon sql cli
 #
 # replace <username> with ryerson username
