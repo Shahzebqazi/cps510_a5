@@ -1,16 +1,16 @@
-cps510
+# CPS 510 Assignment
 
-run using "bash ./menu.sh"
+1. Creating Tables (create_tables.sh):
+    1. Personal Information
+    2. Event
+    3. Credit Card
+    4. Direct Deposit
+    5. Schedule
+    6. Instructor
+    7. Attendance
 
-1. command to access ryerson moon sql cli
-
-replace <username> with ryerson username
-sqlplus64 "<username>@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle.scs.ryerson.ca)(Port=1521))(CONNECT_DATA=(SID=orcl)))"
-
-2. insert the following command into shell scripts to access the SQL server
-
-sqlplus64 "snizam/04054152@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle.scs.ryerson.ca)(Port=1521))(CONNECT_DATA=(SID=orcl)))" <<EOF
-
+2. Populating with Mock content (populate_tables.sh): In this script the tables are filled with mock data.
+3. Drop Table(drop_tables.sh)
 
 
 
