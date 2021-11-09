@@ -37,36 +37,36 @@ MainMenu()
 
 		read CHOICE
 
-		if [ "$CHOICE" == "0" ]
+		if [ "$CHOICE" = "0" ]
 			then
 				echo "Nothing Here"
 
-		elif [ "$CHOICE" == "1" ]
+		elif [ "$CHOICE" = "1" ]
 			then
 				bash drop_tables.sh
 				Pause
 
-		elif [ "$CHOICE" == "2" ]
+		elif [ "$CHOICE" = "2" ]
 			then
 			bash create_tables.sh
 			Pause
 
-		elif [ "$CHOICE" == "3" ]
+		elif [ "$CHOICE" = "3" ]
 		then
 			bash populate_tables.sh
 			Pause
 
-		elif [ "$CHOICE" == "4" ]
+		elif [ "$CHOICE" = "4" ]
 		then
 			bash queries.sh
 			Pause
 
-		elif [ "$CHOICE" == "5" ]
+		elif [ "$CHOICE" = "5" ]
 		then
 			bash view_table.sh
 			Pause
 
-		elif [ "$CHOICE" == "E" ]
+		elif [ "$CHOICE" = "E" ]
 		then
 			exit
 		fi
