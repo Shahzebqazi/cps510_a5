@@ -4,7 +4,6 @@
 sqlplus64 "snizam/04054152@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle.scs.ryerson.ca)(Port=1521))(CONNECT_DATA=(SID=orcl)))" <<EOF
 
 --Create personal_information table
---Create personal_information table
 CREATE TABLE personal_information (
     user_id INTEGER PRIMARY KEY,
     first_name VARCHAR2(30),
