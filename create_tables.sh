@@ -3,20 +3,21 @@
 
 sqlplus64 "snizam/04054152@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle.scs.ryerson.ca)(Port=1521))(CONNECT_DATA=(SID=orcl)))" <<EOF
 
---Create personal_information table
+--Create personal information table
 CREATE TABLE personal_information (
     user_id INTEGER PRIMARY KEY,
     first_name VARCHAR2(30),
     last_name VARCHAR2(30),
     birthdate VARCHAR2(30),
     age INTEGER,
-    health_condition BIT, -- Could make this a boolean
+    health_condition BIT, 
     height INTEGER,
     weight INTEGER
 );
 
+--Create event table
 CREATE TABLE event (
-    event_code VARCHAR2(14) PRIMARY KEY,
+    event_code VARCHAR2(14)  PRIMARY KEY,
     event_id INTEGER NOT NULL,
     instructor VARCHAR2(100) NULL,
     event_date VARCHAR2(20),
@@ -26,7 +27,21 @@ CREATE TABLE event (
     event_location VARCHAR2(100)
 );
 
---Create credit_card table
+/*
+--Create event table
+CREATE TABLE event (
+    event_id INTEGER NOT NULL,
+    instructor VARCHAR2(100) NULL,
+    event_date VARCHAR2(20),
+    event_time INTEGER NOT NULL,
+    event_name VARCHAR2(100),
+    vacancies INTEGER,
+    event_location VARCHAR2(100),
+    PRIMARY KEY (event_id, event_date, event_time)
+);
+*/
+
+--Create credit card table
 CREATE TABLE credit_card (
     user_id INTEGER REFERENCES personal_information(user_id) PRIMARY KEY,
     card_holder_name VARCHAR2(20),
@@ -35,6 +50,7 @@ CREATE TABLE credit_card (
     expiry_date VARCHAR2(20) NOT NULL
 );
 
+--Create direct deposit
 CREATE TABLE direct_deposit (
     user_id INTEGER  REFERENCES personal_information(user_id) PRIMARY KEY,
     transit_number INTEGER NOT NULL,
@@ -42,27 +58,32 @@ CREATE TABLE direct_deposit (
     card_number INTEGER NOT NULL
 );
 
-
 --Create schedule table
 CREATE TABLE schedule (
     user_id INTEGER REFERENCES personal_information(user_id), /*refers to the userID of the client taking a particular class */
     event_id INTEGER REFERENCES event(event_id) /*refers to the eventID of the particular class */
 );
 
+--Create instructor table
+/*instructor_payment_id FK, a pointer from the instructor
+    payment id to the user id, in order to direct deposit pay the instructor*/
+
+/*instructor_event_id FK, a pointer from the instructor
+    event id to the event id, in order to see which class each instructor is teaching*/
+
 CREATE TABLE instructor (
     instructor_id INTEGER REFERENCES personal_information(user_id),
-    instructor_payment_id INTEGER REFERENCES direct_deposit(user_id), /*Foreign key, a pointer from the instructor payment id to the user id, in order to direct deposit pay the instructor*/
-    instructor_event_id INTEGER REFERENCES event(event_id) /*Foreign key, a pointer from the instructor event id to the event id, in order to see which class each instructor is teaching*/
-    /*instructor_info_id INTEGER REFERENCES personal_information(user_id) Foreign key, a pointer from the instructor info id to the user id, in order to access the instructors personal information*/ 
+    instructor_payment_id INTEGER REFERENCES direct_deposit(user_id), 
+    instructor_event_id INTEGER REFERENCES event(event_id)
 );
 
+--Create attendance table
 create table attendance (
     user_id integer,
     event_code VARCHAR2(14)
 );
 
 --views 
-
 --Displays a list of attendees for an instructor for a class. 
 CREATE VIEW confirmed_attendees AS
 SELECT first_name,last_name
