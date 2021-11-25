@@ -50,7 +50,6 @@ VALUES ('12348-08-21-08', 12348, 'Dan', '2021-10-08', 8, 'Swimming', 20, 'Swimmi
 INSERT INTO event (event_code,event_id, instructor, event_date, event_time, event_name, vacancies, event_location) 
 VALUES ('12348-08-21-12', 12348, 'Sam', '2021-10-08', 12, 'Swimming', 0, 'Swimming Pool');
 
-
 --Credit Card
 INSERT INTO credit_card (user_id, card_holder_name, cvv, card_number, expiry_date)
 VALUES (1, 'Damoon', 123, 123456789, '2023-10-08');
