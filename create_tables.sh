@@ -10,7 +10,7 @@ CREATE TABLE personal_information (
     last_name VARCHAR2(30),
     birthdate VARCHAR2(30),
     age INTEGER,
-    health_condition BIT, 
+    health_condition INTEGER, 
     height INTEGER,
     weight INTEGER
 );
